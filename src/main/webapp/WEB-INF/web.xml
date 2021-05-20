@@ -1,0 +1,27 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+  <!--前端控制器配置-->
+  <servlet>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <!--加载配置文件-->
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:springmvc.xml</param-value>
+    </init-param>
+
+    <!--上面的servlet这个类正常的是：当第一次接收到请求时候创建，
+    此配置就是：当启动服务器时候，就可以给我们创建servlet对象，从而帮助我们加载springmvc.xml，从而就可以扫描创建对象-->
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dispatcherServlet</servlet-name>
+    <!-- /:代表不论发送什么请求都会经过控制器-->
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+</web-app>
