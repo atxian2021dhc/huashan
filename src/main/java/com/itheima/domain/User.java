@@ -22,4 +22,11 @@ public class User implements Serializable {
         this.age = age;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", age='" + age + '\'' +
+                '}';
+    }
 }
